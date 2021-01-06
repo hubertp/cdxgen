@@ -534,7 +534,7 @@ const createJavaBom = async (
       const result = spawnSync(
         SBT_CMD,
         ["--sbt-dir", tempSbtgDir, `dependencyList::toFile"${dlFile}"`],
-        { cwd: basePath, encoding: "utf-8" }
+        { cwd: basePath, env: { PATH: process.env.PATH }, encoding: "utf-8" }
       );
       if (result.status == 1 || result.error) {
         console.error(result.stdout, result.stderr);
