@@ -189,7 +189,9 @@ function addComponent(
       return;
     }
     let version = pkg.version;
-    let licenses = utils.getLicenses(pkg, format);
+    //TODO: cherry-pick from upstream optional license fetching
+    //let licenses = utils.getLicenses(pkg, format);
+    let licenses = [];
     let purl = new PackageURL(
       ptype,
       group,
